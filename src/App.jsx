@@ -1,12 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Chart from "./components/chart";
-import data from "./assets/data.json";
 
 function App() {
-  const arrayOfCharts = data.map((chart) => (
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((json) => setData(json)) // save to state
+      .catch((err) => console.error("Error loading data:", err));
+  }, []);
+
+  /* const arrayOfCharts = data.map((chart) => (
     <Chart
       key={chart.name}
       img={chart.image.thumbnail}
@@ -14,12 +20,12 @@ function App() {
       price={chart.price}
       category={chart.category}
     />
-  ));
+  )); */
 
   return (
     <>
       <header>Desserts</header>
-      <section>{arrayOfCharts}</section>
+      {data && <section>{arrayOfCharts}</section>}
       <aside></aside>
     </>
   );
