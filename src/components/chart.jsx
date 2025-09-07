@@ -1,3 +1,5 @@
+import AddToCartIcon from "../icons/icon-add-to-cart.svg";
+
 export default function Chart(props) {
   return (
     <section id={props.key}>
@@ -5,6 +7,10 @@ export default function Chart(props) {
       <h3>{props.category}</h3>
       <h1>{props.name}</h1>
       <h3>{props.price}</h3>
+      <button>
+        <img src={AddToCartIcon} />
+        Add to Cart
+      </button>
     </section>
   );
 }
