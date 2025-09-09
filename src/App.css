@@ -5,8 +5,8 @@ body {
 
 #root {
   width: 100%;
-  height: 600vw;
-  padding: 3%;
+  height: auto;
+  padding: 5%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -23,7 +23,6 @@ body {
 }
 #root main {
   width: 100%;
-  height: 100%;
   gap: 10vw;
   display: flex;
   flex-direction: column;
@@ -34,19 +33,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid pink;
 }
 #root main .dessert img {
   width: 100%;
-  height: 40vw;
+  height: 50vw;
   border-radius: 10px;
+  z-index: 0;
 }
 #root main .dessert button {
-  width: 15vw;
-  height: 10vw;
+  width: 40%;
+  height: 20%;
+  z-index: 1;
+  position: relative;
+  bottom: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(133, 133, 133);
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 3vw;
+  font-weight: 700;
 }
 #root main .dessert button img {
-  width: 10%;
-  width: 80%;
+  width: 30%;
+  height: 70%;
 }
 #root main .dessert small,
 #root main .dessert h3,
@@ -54,4 +67,16 @@ body {
   text-align: left;
   width: 100%;
   margin: 0%;
+}
+#root main aside {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+}
+#root main aside .ilustration-empty-cart {
+  width: 80%;
+  height: 50vw;
 }/*# sourceMappingURL=app.css.map */
