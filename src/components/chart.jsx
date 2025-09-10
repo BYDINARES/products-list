@@ -12,7 +12,7 @@ export default function Chart(props) {
 
       <small>{props.category}</small>
       <h3>{props.name}</h3>
-      <p>{props.price}</p>
+      <p>${props.price.toFixed(2)}</p>
     </section>
   );
 }
