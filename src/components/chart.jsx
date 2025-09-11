@@ -5,7 +5,7 @@ export default function Chart(props) {
     <section className="dessert" id={props.key}>
       <img src={props.img} alt={`The image of a ${props.name}`} />
 
-      <button>
+      <button onClick={props.handleClick}>
         <img src={AddToCartIcon} />
         Add to Cart
       </button>

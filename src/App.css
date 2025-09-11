@@ -87,6 +87,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+#root main aside h1 {
+  color: orangered;
+}
 #root main aside .ilustration-empty-cart {
   width: 80%;
   height: 50vw;
