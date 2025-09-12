@@ -3,6 +3,7 @@ import "./app.css";
 import Chart from "./components/chart";
 import data from "./data/data.json";
 import ilustrationEmptyCart from "./icons/illustration-empty-cart.svg";
+import removeIcon from "./icons/icon-remove-item.svg";
 
 function App() {
   const [shopItems, setShopItems] = useState([]);
@@ -49,6 +50,7 @@ function App() {
       </header>
       <main>
         {arrayOfCharts}
+        {/* This is the cart */}
         <aside className="shopping-cart">
           <h1>Your Cart ({shopItems.length})</h1>
 
@@ -64,19 +66,28 @@ function App() {
             </>
           )}
 
+          {/* This is the length of cart that gets displaid after you have 1 item in the cart */}
           {shopItems.length > 0 && (
             <div className="cart-list">
+              {/* The list of items */}
               {shopItems.map((item, i) => (
                 <section key={i}>
                   <h3>{item.name}</h3>
                   <ul>
-                    <li></li>
-                    <li>${item.price.toFixed(2)}</li>
+                    <li>@${item.price.toFixed(2)}</li>
                     <li>${item.price.toFixed(2)}</li>
                   </ul>
+                  <button>
+                    <img src={removeIcon} alt="An X to remove" />
+                  </button>
                 </section>
               ))}
-              <p>Order Total: ${totalPrice.toFixed(2)}</p>
+              {/* Checkout */}
+              <div className="total-price">
+                <p className="calling-price">Order Total:</p>
+                <p className="number-price">${totalPrice.toFixed(2)}</p>
+              </div>
+
               <p>This is a carbon-neutral delivery</p>
               <button>Confirm order</button>
             </div>
