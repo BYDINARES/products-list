@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import "./app.css";
 import Chart from "./components/chart";
 import data from "./data/data.json";
+//Imported icons
 import ilustrationEmptyCart from "./icons/illustration-empty-cart.svg";
 import removeIcon from "./icons/icon-remove-item.svg";
+import greenTree from "./icons/icon-carbon-neutral.svg";
 
 function App() {
   const [shopItems, setShopItems] = useState([]);
@@ -74,6 +76,7 @@ function App() {
                 <section key={i}>
                   <h3>{item.name}</h3>
                   <ul>
+                    <li className="number-reapeated-products">{0}x</li>
                     <li>@${item.price.toFixed(2)}</li>
                     <li>${item.price.toFixed(2)}</li>
                   </ul>
@@ -88,8 +91,14 @@ function App() {
                 <p className="number-price">${totalPrice.toFixed(2)}</p>
               </div>
 
-              <p>This is a carbon-neutral delivery</p>
-              <button>Confirm order</button>
+              <div className="green-warning">
+                <img src={greenTree} alt="the siluette of a green tree" />
+                <p>
+                  This is a <a>carbon-neutral</a> delivery
+                </p>
+              </div>
+
+              <button id="confirm-order-button">Confirm order</button>
             </div>
           )}
         </aside>
