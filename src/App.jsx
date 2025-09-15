@@ -12,38 +12,64 @@ function App() {
 
   // Store the item data in the cart
   const addToCart = (newItem) => {
-    setShopItems((prevShopItems) => [...prevShopItems, newItem]);
-    console.log(shopItems);
-  };
+    setShopItems((prevShopItems) => {
+      const existingItem = prevShopItems.find(
+        (item) => item.name === newItem.name
+      );
 
-  const counter = useRef(0);
+      if (existingItem) {
+        // If item already exists, increment quantity
+        return prevShopItems.map((item) =>
+          item.name === newItem.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        // If item does not exist, add with quantity 1
+        return [...prevShopItems, { ...newItem, quantity: 1 }];
+      }
+    });
+  };
 
   const addAnotherToTheCart = (newItem) => {
     shopItems.find((item) => item.name === newItem.name);
   };
 
-  // Pass the correct data down into Chart
-  const arrayOfCharts = data.map((chart, index) => (
-    <Chart
-      key={index}
-      img={chart.image.mobile}
-      name={chart.name}
-      price={chart.price}
-      category={chart.category}
-      handleClick={() =>
-        addToCart({
-          id: index, // useful for unique keys
-          name: chart.name,
-          price: chart.price,
-          category: chart.category,
-          img: chart.image.thumbnail,
-        })
-      }
-    />
-  ));
+  const arrayOfCharts = data.map((chart, index) => {
+    const isInCart = shopItems.find((item) => item.name === chart.name);
+
+    return (
+      <Chart
+        key={index}
+        img={chart.image.mobile}
+        name={chart.name}
+        price={chart.price}
+        category={chart.category}
+        handleClick={() =>
+          addToCart({
+            id: index,
+            name: chart.name,
+            price: chart.price,
+            category: chart.category,
+            img: chart.image.thumbnail,
+          })
+        }
+        renderButton={isInCart}
+      />
+    );
+  });
+
+  //Calculate total items to buy
+  const totalNumberOfItems = shopItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   // Calculate total price
-  const totalPrice = shopItems.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = shopItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <>
@@ -54,7 +80,7 @@ function App() {
         {arrayOfCharts}
         {/* This is the cart */}
         <aside className="shopping-cart">
-          <h1>Your Cart ({shopItems.length})</h1>
+          <h1>Your Cart {totalNumberOfItems}</h1>
 
           {/* If empty */}
           {shopItems.length === 0 && (
@@ -76,9 +102,11 @@ function App() {
                 <section key={i}>
                   <h3>{item.name}</h3>
                   <ul>
-                    <li className="number-reapeated-products">{0}x</li>
+                    <li className="number-reapeated-products">
+                      {item.quantity}x
+                    </li>
                     <li>@${item.price.toFixed(2)}</li>
-                    <li>${item.price.toFixed(2)}</li>
+                    <li>${(item.quantity * item.price).toFixed(2)}</li>
                   </ul>
                   <button>
                     <img src={removeIcon} alt="An X to remove" />
