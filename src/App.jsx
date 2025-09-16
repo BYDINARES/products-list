@@ -8,6 +8,7 @@ import removeIcon from "./icons/icon-remove-item.svg";
 import greenTree from "./icons/icon-carbon-neutral.svg";
 
 function App() {
+  const [dataItems, setDataItems] = useState(data);
   const [shopItems, setShopItems] = useState([]);
 
   // Store the item data in the cart
@@ -19,7 +20,7 @@ function App() {
 
       if (existingItem) {
         // If item already exists, increment quantity
-        return prevShopItems.map((item) =>
+        return dataItems.map((item) =>
           item.name === newItem.name
             ? { ...item, quantity: item.quantity + 1 }
             : item
@@ -31,11 +32,11 @@ function App() {
     });
   };
 
-  const addAnotherToTheCart = (newItem) => {
+  /*   const addAnotherToTheCart = (newItem) => {
     shopItems.find((item) => item.name === newItem.name);
-  };
+  }; */
 
-  const arrayOfCharts = data.map((chart, index) => {
+  const arrayOfCharts = dataItems.map((chart, index) => {
     const isInCart = shopItems.find((item) => item.name === chart.name);
 
     return (
@@ -55,10 +56,12 @@ function App() {
           })
         }
         renderButton={isInCart}
+        quantity={chart.quantity}
       />
     );
   });
 
+  console.log(arrayOfCharts);
   //Calculate total items to buy
   const totalNumberOfItems = shopItems.reduce(
     (acc, item) => acc + item.quantity,
