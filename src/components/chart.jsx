@@ -1,6 +1,7 @@
 import AddToCartIcon from "../icons/icon-add-to-cart.svg";
 import incrementIcon from "../icons/icon-increment-quantity.svg";
 import decrementIcon from "../icons/icon-decrement-quantity.svg";
+import { useState } from "react";
 
 export default function Chart(props) {
   return (
@@ -8,7 +9,7 @@ export default function Chart(props) {
       <img src={props.img} alt={`The image of a ${props.name}`} />
 
       {!props.renderButton && (
-        <button onClick={props.handleClick}>
+        <button onClick={props.handleClick} className="add-to-cart-button">
           <img src={AddToCartIcon} />
           Add to Cart
         </button>
@@ -17,6 +18,7 @@ export default function Chart(props) {
         <div onClick={props.handleClick} className="increase-deacrease-button">
           <button>
             <img src={incrementIcon} alt="A '+'" />
+            hello
           </button>
           {props.quantity}
           <button>

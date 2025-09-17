@@ -84,6 +84,21 @@ body {
   width: 30%;
   height: 70%;
 }
+#root main .dessert .increase-deacrease-button {
+  grid-column: 2;
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: right;
+  width: 35vw;
+  height: 30%;
+  border-radius: 90%;
+  border: solid 1px rgb(115, 115, 115);
+  background-color: rgb(211, 84, 0);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
 #root main .dessert small,
 #root main .dessert h3,
 #root main .dessert p {
@@ -139,7 +154,7 @@ body {
   gap: 5%;
   padding: 0%;
 }
-#root main aside .cart-list section button {
+#root main aside .cart-list section > button {
   grid-column: 2;
   grid-row: 1/3;
   align-self: center;
@@ -152,28 +167,15 @@ body {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-#root main aside .cart-list section button img {
+#root main aside .cart-list section > button img {
   height: 90%;
   width: 80%;
 }
-#root main aside .cart-list section button:hover, #root main aside .cart-list section button:focus-visible {
+#root main aside .cart-list section > button:hover, #root main aside .cart-list section > button:focus-visible {
   background-color: rgb(245, 243, 243);
 }
-#root main aside .cart-list section button:active {
+#root main aside .cart-list section > button:active {
   transform: scale(1.3);
-}
-#root main aside .cart-list section .increase-deacrease-button {
-  grid-column: 2;
-  grid-row: 1/3;
-  align-self: center;
-  justify-self: right;
-  width: 35vw;
-  height: 30%;
-  border-radius: 90%;
-  border: solid 1px rgb(115, 115, 115);
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 #root main aside .cart-list .total-price {
   display: flex;

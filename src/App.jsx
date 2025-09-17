@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./app.css";
 import Chart from "./components/chart";
 import data from "./data/data.json";
@@ -8,7 +8,10 @@ import removeIcon from "./icons/icon-remove-item.svg";
 import greenTree from "./icons/icon-carbon-neutral.svg";
 
 function App() {
-  const [dataItems, setDataItems] = useState(data);
+  const [derivedData] = useState(
+    data.map((item) => ({ ...item, quantity: 0 }))
+  );
+
   const [shopItems, setShopItems] = useState([]);
 
   // Store the item data in the cart
@@ -20,7 +23,7 @@ function App() {
 
       if (existingItem) {
         // If item already exists, increment quantity
-        return dataItems.map((item) =>
+        return prevShopItems.map((item) =>
           item.name === newItem.name
             ? { ...item, quantity: item.quantity + 1 }
             : item
@@ -36,7 +39,7 @@ function App() {
     shopItems.find((item) => item.name === newItem.name);
   }; */
 
-  const arrayOfCharts = dataItems.map((chart, index) => {
+  const arrayOfCharts = derivedData.map((chart, index) => {
     const isInCart = shopItems.find((item) => item.name === chart.name);
 
     return (
@@ -52,7 +55,7 @@ function App() {
             name: chart.name,
             price: chart.price,
             category: chart.category,
-            img: chart.image.thumbnail,
+            quantity: chart.quantity,
           })
         }
         renderButton={isInCart}
