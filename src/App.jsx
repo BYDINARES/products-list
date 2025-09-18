@@ -6,6 +6,7 @@ import data from "./data/data.json";
 import ilustrationEmptyCart from "./icons/illustration-empty-cart.svg";
 import removeIcon from "./icons/icon-remove-item.svg";
 import greenTree from "./icons/icon-carbon-neutral.svg";
+import confirmOrder from "./icons/icon-order-confirmed.svg";
 
 function App() {
   const [derivedData] = useState(
@@ -56,6 +57,7 @@ function App() {
             price: chart.price,
             category: chart.category,
             quantity: chart.quantity,
+            img: chart.image,
           })
         }
         renderButton={isInCart}
@@ -76,6 +78,8 @@ function App() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  const [wasConfirmButtonClicked, setWasConfirmButtonClicked] = useState(false);
 
   return (
     <>
@@ -132,10 +136,42 @@ function App() {
                 </p>
               </div>
 
-              <button id="confirm-order-button">Confirm order</button>
+              <button
+                id="confirm-order-button"
+                onClick={() => setWasConfirmButtonClicked(true)}
+              >
+                Confirm order
+              </button>
             </div>
           )}
         </aside>
+
+        {/* Dialog that gets displayed after the confirm button was clicked */}
+        {wasConfirmButtonClicked && (
+          <dialog open>
+            <img src={confirmOrder} alt="A check sign" />
+            <h1>Order Confirmed</h1>
+            <p>We hope you enjoy your food!</p>
+            <div>
+              {shopItems.map((item, i) => (
+                <section key={i}>
+                  <img src={item.img} alt="The image of the dish" />
+                  <h3>{item.name}</h3>
+                  <ul>
+                    <li className="number-reapeated-products">
+                      {item.quantity}x
+                    </li>
+                    <li>@${item.price.toFixed(2)}</li>
+                    <li>${(item.quantity * item.price).toFixed(2)}</li>
+                  </ul>
+                  <button>
+                    <img src={removeIcon} alt="An X to remove" />
+                  </button>
+                </section>
+              ))}
+            </div>
+          </dialog>
+        )}
       </main>
     </>
   );
