@@ -53,6 +53,8 @@ body {
   border-radius: 10px;
   z-index: 0;
   box-shadow: 0 1.7vw 6px rgba(0, 0, 0, 0.1);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #root main .dessert button {
   width: 40%;
@@ -87,17 +89,33 @@ body {
 #root main .dessert .increase-deacrease-button {
   grid-column: 2;
   grid-row: 1/3;
+  position: relative;
+  bottom: 6%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   align-self: center;
   justify-self: right;
   width: 35vw;
-  height: 30%;
-  border-radius: 90%;
-  border: solid 1px rgb(115, 115, 115);
+  height: 10vw;
+  border-radius: 20px;
   background-color: rgb(211, 84, 0);
   cursor: pointer;
+  color: white;
+  font-size: 3vw;
   transition: all 0.2s ease-in-out;
+}
+#root main .dessert .increase-deacrease-button button {
+  background-color: transparent;
+  border: solid 1px white;
+  padding: 0%;
+  height: 50%;
+  width: 14%;
+}
+#root main .dessert .increase-deacrease-button button img {
+  height: 90%;
+  width: 50%;
 }
 #root main .dessert small,
 #root main .dessert h3,
