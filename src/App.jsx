@@ -36,6 +36,29 @@ function App() {
     });
   };
 
+  const decreaseTheNumberOfItems = (clickedItem) => {
+    console.log("Decrease!!!");
+    setShopItems((prevShopItems) => {
+      const existingItem = prevShopItems.find(
+        (item) => item.name === clickedItem.name
+      );
+
+      if (!existingItem) return prevShopItems;
+
+      /* if (existingItem.quantity === 1) {
+        // remove if quantity would go to 0
+        return prevShopItems.filter((item) => item.name !== clickedItem.name);
+      } */
+
+      // otherwise decrease
+      return prevShopItems.map((item) =>
+        item.name === clickedItem.name
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+    });
+  };
+
   /*   const addAnotherToTheCart = (newItem) => {
     shopItems.find((item) => item.name === newItem.name);
   }; */
@@ -59,6 +82,9 @@ function App() {
             quantity: chart.quantity,
             img: chart.image,
           })
+        }
+        handleClickDecrease={() =>
+          decreaseTheNumberOfItems({ name: chart.name })
         }
         renderButton={isInCart}
         quantity={chart.quantity}
