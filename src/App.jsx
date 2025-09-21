@@ -16,33 +16,23 @@ function App() {
   const [shopItems, setShopItems] = useState([]);
 
   // Store the item data in the cart
-  const addToCart = (newItem) => {
+  /*  const addToCart = (newItem) => {
     setShopItems((prevShopItems) => {
       const existingItem = prevShopItems.find(
         (item) => item.name === newItem.name
-      );
-
-      if (existingItem) {
-        // If item already exists, increment quantity
-        return prevShopItems.map((item) =>
-          item.name === newItem.name
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        // If item does not exist, add with quantity 1
-        return [...prevShopItems, { ...newItem, quantity: 1 }];
-      }
+      );                                        <=== THE APP DOESN'T CURRENLTY
+                                                     WORK. SEE IF YOU CAN REMOVE THIS BECUASE YOU CREATED ANOTHER FUNCTION. 
     });
-  };
+  }; */
 
   const decreaseTheNumberOfItems = (clickedItem) => {
     console.log("Decrease!!!");
     setShopItems((prevShopItems) => {
       const existingItem = prevShopItems.find(
-        (item) => item.name === clickedItem.name
+        (item) => item.name === clickedItem
       );
 
+      //Return if there's no item in the "shopItems" array named like "clikedItem"
       if (!existingItem) return prevShopItems;
 
       /* if (existingItem.quantity === 1) {
@@ -52,19 +42,43 @@ function App() {
 
       // otherwise decrease
       return prevShopItems.map((item) =>
-        item.name === clickedItem.name
+        item.name === clickedItem
           ? { ...item, quantity: item.quantity - 1 }
           : item
       );
     });
   };
 
-  /*   const addAnotherToTheCart = (newItem) => {
-    shopItems.find((item) => item.name === newItem.name);
-  }; */
+  //I need to pass the name of the chart being clicked as the clickedItem
+  const increaseTheNumberOfItems = (clickedItem) => {
+    setShopItems((prevShopItems) => {
+      const itemExists = prevShopItems.find(
+        (item) => item.name === clickedItem
+      );
 
+      // I NEED TO CODE SOMETHING IN CASE THE DECREASE REACHES 0 WITH THIS SPECIFIC BUTTON
+      /* if (clickedItem.quantity - 1 === 0){
+        return 
+      } */
+
+      if (itemExists) {
+        // If item already exists, increment quantity
+        return prevShopItems.map((item) =>
+          item.name === clickedItem
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        // If item does not exist, add with quantity 1
+        return [...prevShopItems, { ...clickedItem, quantity: 1 }];
+      }
+    });
+  };
+
+  // ============ ARRAY OF COMPONENTS (CHARTS) ===========
   const arrayOfCharts = derivedData.map((chart, index) => {
-    const isInCart = shopItems.find((item) => item.name === chart.name);
+    // Look for this chart in the cart
+    const shopItem = shopItems.find((item) => item.name === chart.name);
 
     return (
       <Chart
@@ -79,15 +93,13 @@ function App() {
             name: chart.name,
             price: chart.price,
             category: chart.category,
-            quantity: chart.quantity,
             img: chart.image,
           })
         }
-        handleClickDecrease={() =>
-          decreaseTheNumberOfItems({ name: chart.name })
-        }
-        renderButton={isInCart}
-        quantity={chart.quantity}
+        handleClickIncrease={() => increaseTheNumberOfItems(chart.name)}
+        handleClickDecrease={() => decreaseTheNumberOfItems(chart.name)}
+        renderButton={!!shopItem}
+        quantity={shopItem ? shopItem.quantity : 0}
       />
     );
   });
