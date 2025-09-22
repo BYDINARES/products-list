@@ -14,7 +14,7 @@ export default function Chart(props) {
         </button>
       )}
       {props.renderButton && (
-        <div onClick={props.handleClick} className="increase-deacrease-button">
+        <div className="increase-deacrease-button">
           <button onClick={props.handleClickDecrease}>
             <img src={decrementIcon} alt="A '-'" />
           </button>
