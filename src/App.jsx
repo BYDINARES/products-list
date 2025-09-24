@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState /* useRef */ } from "react";
 import "./app.css";
 import Chart from "./components/chart";
 import data from "./data/data.json";
@@ -99,10 +99,10 @@ function App() {
     0
   );
 
-  const dialogRef = useRef(null);
+  /* const dialogRef = useRef(null); */
 
-  const openDialog = () => dialogRef.current.showModal();
-  const closeDialog = () => dialogRef.current.close();
+  /* const openDialog = () => dialogRef.current.showModal();
+  const closeDialog = () => dialogRef.current.close(); */
 
   return (
     <>
@@ -159,36 +159,38 @@ function App() {
                 </p>
               </div>
 
-              <button id="confirm-order-button" onClick={openDialog}>
+              <button id="confirm-order-button" /* onClick={openDialog} */>
                 Confirm order
               </button>
             </div>
           )}
         </aside>
         {/* Dialog that gets displayed after the confirm button was clicked */}
-        <dialog>
+        <div className="dialogContainer">
           <img src={confirmOrder} alt="A check sign" />
           <h1>Order Confirmed</h1>
           <p>We hope you enjoy your food!</p>
-          <div>
+          <div className="containerOfOrder">
             {shopItems.map((item, i) => (
-              <section key={i}>
-                <img src={item.img} alt="The image of the dish" />
+              <section className="orderItem" key={i}>
+                <img src={item.image} alt="The image of the dish" />
                 <h3>{item.name}</h3>
                 <ul>
                   <li className="number-reapeated-products">
                     {item.quantity}x
                   </li>
                   <li>@${item.price.toFixed(2)}</li>
-                  <li>${(item.quantity * item.price).toFixed(2)}</li>
                 </ul>
-                <button>
-                  <img src={removeIcon} alt="An X to remove" />
-                </button>
+                <p>${(item.quantity * item.price).toFixed(2)}</p>
               </section>
             ))}
+            <div className="total-checkout-price">
+              <p className="calling-price">Order Total:</p>
+              <p className="number-price">${totalPrice.toFixed(2)}</p>
+            </div>
           </div>
-        </dialog>
+          <button id="startANewOrder">Start a new order</button>
+        </div>
       </main>
     </>
   );
