@@ -57,7 +57,7 @@ body {
      object-fit: cover;
 }
 #root main .dessert button {
-  width: 40%;
+  width: 55%;
   height: 20%;
   z-index: 1;
   position: relative;
@@ -68,7 +68,7 @@ body {
   padding-right: 3%;
   border: none;
   background-color: rgb(255, 255, 255);
-  border-radius: 20px;
+  border-radius: 60px;
   box-shadow: 0 1.2vw 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 3.5vw;
@@ -97,21 +97,28 @@ body {
   justify-content: space-around;
   align-self: center;
   justify-self: right;
-  width: 40%;
+  width: 55%;
   height: 20%;
-  border-radius: 20px;
-  background-color: rgb(211, 84, 0);
+  border-radius: 60px;
+  background-color: rgb(188, 48, 1);
   cursor: pointer;
   color: white;
-  font-size: 3vw;
+  font-size: 3.5vw;
+  font-weight: 600;
   transition: all 0.2s ease-in-out;
+}
+#root main .dessert .increase-deacrease-button:hover, #root main .dessert .increase-deacrease-button:focus-visible {
+  transform: scale(1.05);
+}
+#root main .dessert .increase-deacrease-button:active {
+  transform: scale(0.9);
 }
 #root main .dessert .increase-deacrease-button button {
   background-color: transparent;
   border: solid 1px white;
   padding: 0%;
-  height: 40%;
-  width: 14%;
+  height: 5vw;
+  width: 5vw;
 }
 #root main .dessert .increase-deacrease-button button img {
   height: 90%;
@@ -129,83 +136,114 @@ body {
   font-weight: 500;
   color: gray;
 }
+#root main .dessert h3 {
+  font-size: 5vw;
+  font-weight: 600;
+}
 #root main .dessert p {
   color: orangered;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 5vw;
 }
-#root main aside {
+#root main aside.shopping-cart {
   height: auto;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   justify-content: center;
   align-items: center;
+  padding-top: 5%;
 }
-#root main aside h1 {
+#root main aside.shopping-cart h1 {
   color: orangered;
   width: 88%;
+  font-size: 6vw;
 }
-#root main aside .ilustration-empty-cart {
+#root main aside.shopping-cart .ilustration-empty-cart {
   width: 80%;
   height: 50vw;
 }
-#root main aside .cart-list {
+#root main aside.shopping-cart .cart-list {
   width: 85%;
 }
-#root main aside .cart-list section {
+#root main aside.shopping-cart .cart-list section {
   display: grid;
   grid-template-columns: 80% 20%;
   grid-template-rows: 50% 50%;
   border-bottom: 1px solid rgb(182, 182, 182);
   padding-top: 5%;
+  height: 15svw;
 }
-#root main aside .cart-list section h3 {
+#root main aside.shopping-cart .cart-list section h3 {
   grid-column: 1/2;
   grid-row: 1/2;
   margin: 0%;
+  font-size: 3.5vw;
+  font-weight: 600;
 }
-#root main aside .cart-list section ul {
+#root main aside.shopping-cart .cart-list section ul {
   grid-column: 1/2;
   grid-row: 2;
   display: flex;
   list-style: none;
   gap: 5%;
   padding: 0%;
+  margin-top: 0%;
 }
-#root main aside .cart-list section > button {
+#root main aside.shopping-cart .cart-list section ul li.number-reapeated-products {
+  color: rgb(180, 48, 0);
+  font-weight: 700;
+  font-size: 3vw;
+}
+#root main aside.shopping-cart .cart-list section ul li.price {
+  font-size: 3vw;
+}
+#root main aside.shopping-cart .cart-list section ul li.multipliedPrice {
+  font-size: 3vw;
+}
+#root main aside.shopping-cart .cart-list section > button {
   grid-column: 2;
   grid-row: 1/3;
   align-self: center;
   justify-self: right;
-  width: 35%;
-  height: 30%;
+  height: 4.5vw;
+  width: 4.5vw;
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   border-radius: 90%;
   border: solid 1px rgb(115, 115, 115);
   background-color: rgb(255, 255, 255);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-#root main aside .cart-list section > button img {
-  height: 90%;
-  width: 80%;
+#root main aside.shopping-cart .cart-list section > button img {
+  margin: 0%;
+  padding: 0%;
+  height: 2.7vw;
+  width: 2.7vw;
 }
-#root main aside .cart-list section > button:hover, #root main aside .cart-list section > button:focus-visible {
+#root main aside.shopping-cart .cart-list section > button:hover, #root main aside.shopping-cart .cart-list section > button:focus-visible {
   background-color: rgb(245, 243, 243);
 }
-#root main aside .cart-list section > button:active {
+#root main aside.shopping-cart .cart-list section > button:active {
   transform: scale(1.3);
 }
-#root main aside .cart-list .total-price {
+#root main aside.shopping-cart .cart-list .total-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 5%;
+  padding-bottom: 5%;
 }
-#root main aside .cart-list .total-price .calling-price {
+#root main aside.shopping-cart .cart-list .total-price .calling-price {
   font-size: 4vw;
   font-weight: 600;
 }
-#root main aside .cart-list .total-price .number-price {
+#root main aside.shopping-cart .cart-list .total-price .number-price {
   font-weight: 700;
   height: -moz-fit-content;
   height: fit-content;
@@ -213,7 +251,7 @@ body {
   margin: 0%;
   padding: 0%;
 }
-#root main aside .cart-list .green-warning {
+#root main aside.shopping-cart .cart-list .green-warning {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,18 +259,18 @@ body {
   border-radius: 10px;
   background-color: rgb(248, 248, 248);
 }
-#root main aside .cart-list .green-warning img {
+#root main aside.shopping-cart .cart-list .green-warning img {
   height: 80%;
   width: 10%;
 }
-#root main aside .cart-list .green-warning p {
+#root main aside.shopping-cart .cart-list .green-warning p {
   font-weight: 500;
   font-size: 3.5vw;
 }
-#root main aside .cart-list .green-warning p a {
+#root main aside.shopping-cart .cart-list .green-warning p a {
   font-weight: 700;
 }
-#root main aside .cart-list #confirm-order-button {
+#root main aside.shopping-cart .cart-list #confirm-order-button {
   width: 100%;
   margin-top: 8%;
   margin-bottom: 8%;
@@ -245,11 +283,11 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-#root main aside .cart-list #confirm-order-button:hover, #root main aside .cart-list #confirm-order-button:focus-visible {
+#root main aside.shopping-cart .cart-list #confirm-order-button:hover, #root main aside.shopping-cart .cart-list #confirm-order-button:focus-visible {
   transform: scale(1.05);
   background-color: rgb(254, 69, 1);
 }
-#root main aside .cart-list #confirm-order-button:active {
+#root main aside.shopping-cart .cart-list #confirm-order-button:active {
   transform: scale(0.5);
 }
 #root .dialogContainer {
@@ -278,6 +316,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   padding: 8%;
+  margin-bottom: 8vw;
   background-color: rgb(240, 231, 218);
   border-radius: 10px;
 }
@@ -285,7 +324,8 @@ body {
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-columns: 20% 60% 20%;
-  border-bottom: solid rgb(155, 155, 155) 1px;
+  border-bottom: solid rgb(193, 193, 193) 1.2px;
+  padding-top: 5%;
 }
 #root .dialogContainer .containerOfOrder .orderItem img {
   grid-column: 1/2;
@@ -294,22 +334,62 @@ body {
 #root .dialogContainer .containerOfOrder .orderItem h3 {
   grid-column: 2/3;
   grid-row: 1/2;
+  margin: 0%;
+  font-size: 3vw;
+  font-weight: 500;
 }
 #root .dialogContainer .containerOfOrder .orderItem ul {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  gap: 20%;
   list-style: none;
+  justify-self: left;
   grid-column: 2/3;
   grid-row: 2;
+}
+#root .dialogContainer .containerOfOrder .orderItem ul li.number-reapeated-products {
+  color: orangered;
+  font-weight: 700;
+  font-size: 3vw;
+}
+#root .dialogContainer .containerOfOrder .orderItem ul li.price {
+  color: gray;
+  font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 3vw;
 }
 #root .dialogContainer .containerOfOrder .orderItem p {
   grid-column: 3;
   grid-row: 1/3;
   align-self: center;
+  justify-self: right;
+  margin: 0%;
+  padding: 0%;
+  font-weight: 600;
+}
+#root .dialogContainer .containerOfOrder .total-checkout-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vw;
+  padding-top: 2vw;
+}
+#root .dialogContainer .containerOfOrder .total-checkout-price p {
+  margin: 0%;
+}
+#root .dialogContainer .containerOfOrder .total-checkout-price .number-price {
+  font-weight: 700;
+  font-size: 7vw;
 }
 #root .dialogContainer #startANewOrder {
   width: 100%;
   height: 12vw;
+  margin-bottom: 8vw;
   background-color: orangered;
   color: white;
   font-weight: 700;

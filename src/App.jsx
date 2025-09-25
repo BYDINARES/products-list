@@ -113,7 +113,7 @@ function App() {
         {arrayOfCharts}
         {/* This is the cart */}
         <aside className="shopping-cart">
-          <h1>Your Cart {totalNumberOfItems}</h1>
+          <h1>Your Cart ({totalNumberOfItems})</h1>
 
           {/* If empty */}
           {shopItems.length === 0 && (
@@ -138,8 +138,10 @@ function App() {
                     <li className="number-reapeated-products">
                       {item.quantity}x
                     </li>
-                    <li>@${item.price.toFixed(2)}</li>
-                    <li>${(item.quantity * item.price).toFixed(2)}</li>
+                    <li className="price">@${item.price.toFixed(2)}</li>
+                    <li className="multipliedPrice">
+                      ${(item.quantity * item.price).toFixed(2)}
+                    </li>
                   </ul>
                   <button>
                     <img src={removeIcon} alt="An X to remove" />
@@ -179,7 +181,7 @@ function App() {
                   <li className="number-reapeated-products">
                     {item.quantity}x
                   </li>
-                  <li>@${item.price.toFixed(2)}</li>
+                  <li className="price">@ ${item.price.toFixed(2)}</li>
                 </ul>
                 <p>${(item.quantity * item.price).toFixed(2)}</p>
               </section>
