@@ -53,8 +53,26 @@ body {
   border-radius: 10px;
   z-index: 0;
   box-shadow: 0 1.7vw 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@keyframes neonBorder {
+  0% {
+    box-shadow: 0 0 0 rgb(188, 48, 1);
+  }
+  40% {
+    box-shadow: 0 0 8px rgb(188, 48, 1);
+  }
+  60% {
+    box-shadow: 0 0 12px rgb(188, 48, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(188, 48, 1);
+  }
+}
+#root main .dessert > img.active {
+  animation: neonBorder 1.5s forwards;
 }
 #root main .dessert button {
   width: 55%;
@@ -105,20 +123,25 @@ body {
   color: white;
   font-size: 3.5vw;
   font-weight: 600;
+  box-shadow: 0 1.2vw 6px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
 #root main .dessert .increase-deacrease-button:hover, #root main .dessert .increase-deacrease-button:focus-visible {
   transform: scale(1.05);
 }
-#root main .dessert .increase-deacrease-button:active {
-  transform: scale(0.9);
-}
 #root main .dessert .increase-deacrease-button button {
   background-color: transparent;
-  border: solid 1px white;
+  border: solid 2px white;
   padding: 0%;
   height: 5vw;
   width: 5vw;
+  transition: all 0.2s ease-in-out;
+}
+#root main .dessert .increase-deacrease-button button:hover, #root main .dessert .increase-deacrease-button button:focus-visible {
+  transform: scale(1.05);
+}
+#root main .dessert .increase-deacrease-button button:active {
+  transform: scale(0.7);
 }
 #root main .dessert .increase-deacrease-button button img {
   height: 90%;
@@ -392,7 +415,15 @@ body {
   margin-bottom: 8vw;
   background-color: orangered;
   color: white;
+  font-size: 4vw;
   font-weight: 700;
   border-radius: 30px;
   border-style: none;
+  transition: all 0.2s ease;
+}
+#root .dialogContainer #startANewOrder:hover, #root .dialogContainer #startANewOrder:focus-visible {
+  transform: scale(1.05);
+}
+#root .dialogContainer #startANewOrder:active {
+  transform: scale(0.7);
 }/*# sourceMappingURL=app.css.map */

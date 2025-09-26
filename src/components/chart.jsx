@@ -5,7 +5,11 @@ import decrementIcon from "../icons/icon-decrement-quantity.svg";
 export default function Chart(props) {
   return (
     <section className="dessert" id={props.key}>
-      <img src={props.img} alt={`The image of a ${props.name}`} />
+      <img
+        className={props.renderButton ? "active" : null}
+        src={props.img}
+        alt={`The image of a ${props.name}`}
+      />
 
       {!props.renderButton && (
         <button onClick={props.handleClick} className="add-to-cart-button">
