@@ -6,7 +6,7 @@ export default function Chart(props) {
   return (
     <section className="dessert" id={props.key}>
       <img
-        className={props.renderButton ? "active" : null}
+        className={props.renderButton ? "active" : "removing"}
         src={props.img}
         alt={`The image of a ${props.name}`}
       />

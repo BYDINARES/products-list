@@ -1,4 +1,4 @@
-import { useState /* useRef */ } from "react";
+import { useState, useRef } from "react";
 import "./app.css";
 import Chart from "./components/chart";
 import data from "./data/data.json";
@@ -9,11 +9,23 @@ import greenTree from "./icons/icon-carbon-neutral.svg";
 import confirmOrder from "./icons/icon-order-confirmed.svg";
 
 function App() {
+  //========= GLOBAL VALUES ============
   const [derivedData] = useState(
     data.map((item) => ({ ...item, quantity: 0 }))
   );
 
   const [shopItems, setShopItems] = useState([]);
+
+  //The reff for opening the dailog
+  const dialogRef = useRef(null);
+
+  const openDialog = () => {
+    if (dialogRef.current) dialogRef.current.showModal();
+  };
+
+  const closeDialog = () => {
+    if (dialogRef.current) dialogRef.current.close();
+  };
 
   // Store the item data in the cart
   const addToCart = (newItem) => {
@@ -76,7 +88,7 @@ function App() {
             name: chart.name,
             price: chart.price,
             category: chart.category,
-            img: chart.image,
+            img: chart.image.mobile,
           })
         }
         handleClickDecrease={() => decreaseTheNumberOfItems(chart.name)}
@@ -139,7 +151,13 @@ function App() {
                     </li>
                   </ul>
                   <button>
-                    <img src={removeIcon} alt="An X to remove" />
+                    <img
+                      onClick={() => {
+                        decreaseTheNumberOfItems(item.name);
+                      }}
+                      src={removeIcon}
+                      alt="An X to remove"
+                    />
                   </button>
                 </section>
               ))}
@@ -156,28 +174,42 @@ function App() {
                 </p>
               </div>
 
-              <button id="confirm-order-button" /* onClick={openDialog} */>
+              <button id="confirm-order-button" onClick={openDialog}>
                 Confirm order
               </button>
             </div>
           )}
         </aside>
-        {/* Dialog that gets displayed after the confirm button was clicked */}
-        <div className="dialogContainer">
-          <img src={confirmOrder} alt="A check sign" />
+
+        {/*====== Dialog that gets displayed after the confirm button was clicked ========*/}
+        <dialog ref={dialogRef} className="dialogContainer">
+          <div className="top-dialog-icons">
+            <img className="check-icon" src={confirmOrder} alt="A check sign" />
+            <img
+              className="close-dialog-img"
+              onClick={() => closeDialog()}
+              src={removeIcon}
+              alt=""
+            />
+          </div>
+
           <h1>Order Confirmed</h1>
           <p>We hope you enjoy your food!</p>
+
           <div className="containerOfOrder">
             {shopItems.map((item, i) => (
               <section className="orderItem" key={i}>
-                <img src={item.image} alt="The image of the dish" />
+                <img src={item.img} alt="The image of the dish" />
+
                 <h3>{item.name}</h3>
+
                 <ul>
                   <li className="number-reapeated-products">
                     {item.quantity}x
                   </li>
                   <li className="price">@ ${item.price.toFixed(2)}</li>
                 </ul>
+
                 <p>${(item.quantity * item.price).toFixed(2)}</p>
               </section>
             ))}
@@ -186,8 +218,16 @@ function App() {
               <p className="number-price">${totalPrice.toFixed(2)}</p>
             </div>
           </div>
-          <button id="startANewOrder">Start a new order</button>
-        </div>
+          <button
+            onClick={() => {
+              setShopItems([]); // clear the cart
+              closeDialog(); // close the dialog
+            }}
+            id="startANewOrder"
+          >
+            Start a new order
+          </button>
+        </dialog>
       </main>
     </>
   );
