@@ -115,12 +115,13 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>Desserts</h1>
-      </header>
       <main>
+        <h1>Desserts</h1>
+
         {arrayOfCharts}
         {/* This is the cart */}
+      </main>
+      <footer>
         <aside className="shopping-cart">
           <h1>Your Cart ({totalNumberOfItems})</h1>
 
@@ -230,7 +231,7 @@ function App() {
             Start a new order
           </button>
         </dialog>
-      </main>
+      </footer>
     </>
   );
 }

@@ -1,0 +1,57 @@
+#root {
+  @media screen and (min-width: 576px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+  @media screen and (min-width: 768px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+    main {
+      grid-column: 1/2;
+
+      .dessert {
+        flex-direction: row;
+        height: 30vw;
+        width: 10%;
+      }
+      aside.shopping-cart {
+      }
+      .dialog-open {
+      }
+    }
+    footer {
+      grid-column: 2;
+      .dialog-open {
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+  @media screen and (min-width: 1400px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+}

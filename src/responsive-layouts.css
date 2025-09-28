@@ -1,0 +1,17 @@
+@media screen and (min-width: 992px) {
+  #root {
+    display: grid;
+    grid-template-columns: 80% 20%;
+  }
+  #root main {
+    grid-column: 1/2;
+  }
+  #root main .dessert {
+    flex-direction: row;
+    height: 30vw;
+    width: 10%;
+  }
+  #root footer {
+    grid-column: 2;
+  }
+}/*# sourceMappingURL=responsive-layouts.css.map */
