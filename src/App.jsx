@@ -16,17 +16,6 @@ function App() {
 
   const [shopItems, setShopItems] = useState([]);
 
-  //The reff for opening the dailog
-  const dialogRef = useRef(null);
-
-  const openDialog = () => {
-    if (dialogRef.current) dialogRef.current.showModal();
-  };
-
-  const closeDialog = () => {
-    if (dialogRef.current) dialogRef.current.close();
-  };
-
   // Store the item data in the cart
   const addToCart = (newItem) => {
     setShopItems((prevShopItems) => {
@@ -110,6 +99,19 @@ function App() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  //The reff for opening the dailog
+  const dialogRef = useRef(null);
+
+  const openDialog = () => {
+    if (dialogRef.current) dialogRef.current.showModal();
+    dialogRef.current.classList.toggle("dialog-open");
+  };
+
+  const closeDialog = () => {
+    if (dialogRef.current) dialogRef.current.close();
+    dialogRef.current.classList.remove("dialog-open");
+  };
 
   return (
     <>
