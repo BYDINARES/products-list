@@ -55,7 +55,7 @@ body {
         height: 80%;
         border-radius: 10px;
         z-index: 0;
-        box-shadow: 0 1.7vw 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1.7% 6px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
         object-fit: cover; // Add this for consistent aspect ratio
 
@@ -114,13 +114,14 @@ body {
         border: none /* 0.4px solid rgb(133, 133, 133) */;
         background-color: rgb(255, 255, 255);
         border-radius: 60px;
-        box-shadow: 0 1.2vw 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1.2cqi 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
 
-        font-size: 3.5vw;
         font-weight: 900;
 
         transition: all 0.2s ease-in-out;
+
+        font-size: clamp(1rem, 4cqi, 100rem);
 
         &:hover,
         &:focus-visible {
@@ -156,7 +157,7 @@ body {
         background-color: rgb(188, 48, 1);
         cursor: pointer;
         color: white;
-        font-size: 3.5vw;
+        // font-size: clamp(1rem, 4);
         font-weight: 600;
         box-shadow: 0 1.2vw 6px rgba(0, 0, 0, 0.1);
         transition: all 0.2s ease-in-out;
@@ -170,8 +171,8 @@ body {
           background-color: transparent;
           border: solid 2px white;
           padding: 0%;
-          height: 5vw;
-          width: 5vw;
+          height: 5cqi;
+          width: 5cqi;
           transition: all 0.2s ease-in-out;
 
           &:hover,
@@ -198,13 +199,13 @@ body {
       }
 
       small /*The category*/ {
-        font-size: 3.5vw;
+        font-size: 3.5cqi;
         font-weight: 500;
         color: gray;
       }
 
       h3 {
-        font-size: 5vw;
+        font-size: 5cqi;
         font-weight: 600;
       }
 
@@ -212,7 +213,7 @@ body {
       p {
         color: orangered;
         font-weight: 600;
-        font-size: 5vw;
+        font-size: 5cqi;
       }
     }
   }
@@ -233,12 +234,12 @@ body {
       h1 {
         color: orangered;
         width: 88%;
-        font-size: 6vw;
+        font-size: 6cqi;
       }
 
       .ilustration-empty-cart {
         width: 80%;
-        height: 50vw;
+        height: 50cqi;
       }
 
       //The list of the to-be-buyed items
@@ -252,7 +253,7 @@ body {
           grid-template-rows: 50% 50%;
           border-bottom: 1px solid rgb(182, 182, 182);
           padding-top: 5%;
-          height: 15svw;
+          height: 15cqui;
           h3 {
             grid-column: 1/2;
             grid-row: 1/2;
@@ -392,12 +393,12 @@ body {
       flex-direction: column;
       align-items: flex-start;
 
-      padding-left: 5%;
-      padding-right: 5%;
+      padding-left: 5vw;
+      padding-right: 5vw;
       margin: 0%;
 
       width: 90vw;
-      height: 80%;
+      height: 90vw;
       top: auto;
 
       border: none;
@@ -410,25 +411,31 @@ body {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 30vw;
+        //You need to set good heights for this one: it doesn't accept % or cqi
+
         .check-icon {
-          height: 20vw;
+          height: 100%;
+          width: auto;
+          /* Place at the start */
+          margin-right: auto;
         }
         .close-dialog-img {
-          height: 20%;
+          height: 100%;
+          /* Place at the end */
+          margin-left: auto;
         }
       }
 
       h1 {
-        font-size: 12vw;
+        font-size: 12cqi;
         padding: 0%;
         margin: 0%;
       }
       p {
         font-weight: 100;
-        font-size: 4vw;
+        font-size: 4cqi;
         margin: 0%;
-        margin-top: 2vw;
+        margin-top: 2%;
         margin-bottom: 8%;
       }
 
