@@ -118,7 +118,7 @@ function App() {
       <main>
         <h1>Desserts</h1>
 
-        {arrayOfCharts}
+        <div className="container-of-compoments">{arrayOfCharts}</div>
         {/* This is the cart */}
       </main>
       <footer>

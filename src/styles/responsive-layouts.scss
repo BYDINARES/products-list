@@ -1,5 +1,5 @@
 #root {
-  @media screen and (min-width: 576px) {
+  /*   @media screen and (min-width: 576px) {
     header {
     }
     main {
@@ -14,26 +14,66 @@
     }
     .dialog-open {
     }
-  }
+  } */
   @media screen and (min-width: 992px) {
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 30%;
 
     main {
+      display: flex;
+      flex-direction: column;
       grid-column: 1/2;
+      gap: 4%;
 
-      .dessert {
-        flex-direction: row;
-        height: 30vw;
-        width: 10%;
+      h1 {
+        font-size: 4cqi;
       }
-      aside.shopping-cart {
-      }
-      .dialog-open {
+
+      .container-of-compoments {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+
+        .dessert {
+          flex-direction: column;
+          height: 37vw;
+          width: 30%;
+          > img {
+            height: 70%;
+          }
+          button {
+            height: fit-content;
+            font-size: 1cqi;
+            padding: 2%;
+            img {
+            }
+          }
+          .increase-deacrease-button {
+            button {
+            }
+          }
+          small {
+            font-size: 1.5cqi;
+          }
+          h3 {
+            font-size: 1.5cqi;
+          }
+          p {
+            font-size: 1cqi;
+          }
+        }
       }
     }
     footer {
       grid-column: 2;
+      width: 100%;
+
+      aside.shopping-cart {
+        width: 100%;
+        h1 {
+          font-size: 2cqi;
+        }
+      }
       .dialog-open {
       }
     }
@@ -42,6 +82,33 @@
     header {
     }
     main {
+      /* .container-of-compoments {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+      }
+      .dessert {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 30vw;
+        width: 30%;
+        > img {
+        }
+        button {
+          img {
+          }
+        }
+        .increase-deacrease-button {
+          button {
+          }
+        }
+        small {
+        }
+        h3 {
+        }
+        p {
+        }
+      } */
     }
     .dialog-open {
     }
