@@ -151,7 +151,7 @@ body {
   transform: scale(1.05);
 }
 #root main .container-of-compoments .dessert .increase-deacrease-button button {
-  background-color: transparent;
+  background-color: tra sparent;
   border: solid 2px white;
   padding: 0%;
   height: 5cqi;
@@ -517,7 +517,7 @@ body {
   }
   #root main .container-of-compoments .dessert {
     flex-direction: column;
-    height: 37vw;
+    height: 25vw;
     width: 30%;
   }
   #root main .container-of-compoments .dessert > img {
@@ -528,6 +528,18 @@ body {
     height: fit-content;
     font-size: 1cqi;
     padding: 2%;
+  }
+  #root main .container-of-compoments .dessert .increase-deacrease-button {
+    height: 10%;
+    width: 60%;
+  }
+  #root main .container-of-compoments .dessert .increase-deacrease-button button {
+    height: 1.5cqi;
+    width: 1.5cqi;
+  }
+  #root main .container-of-compoments .dessert .increase-deacrease-button button img {
+    height: 80%;
+    width: 80%;
   }
   #root main .container-of-compoments .dessert small {
     font-size: 1.5cqi;
@@ -547,6 +559,94 @@ body {
   }
   #root footer aside.shopping-cart h1 {
     font-size: 2cqi;
+  }
+  #root footer aside.shopping-cart .cart-list section h3 {
+    font-size: 1.2cqi;
+  }
+  #root footer aside.shopping-cart .cart-list section ul li.number-reapeated-products {
+    font-size: 1cqi;
+  }
+  #root footer aside.shopping-cart .cart-list section ul li.price {
+    font-size: 1cqi;
+  }
+  #root footer aside.shopping-cart .cart-list section ul li.multipliedPrice {
+    font-size: 1cqi;
+  }
+  #root footer aside.shopping-cart .cart-list section > button {
+    height: 30%;
+    width: 30%;
+  }
+  #root footer aside.shopping-cart .cart-list section > button img {
+    width: 80%;
+    height: 80%;
+  }
+  #root footer aside.shopping-cart .cart-list .total-price .calling-price {
+    font-size: 1.5cqi;
+  }
+  #root footer aside.shopping-cart .cart-list .total-price .number-price {
+    font-size: 3cqi;
+  }
+  #root footer aside.shopping-cart .cart-list .green-warning p {
+    font-size: 1.2cqi;
+  }
+  #root footer aside.shopping-cart .cart-list #confirm-order-button {
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 5%;
+    font-size: 1.5cqi;
+    font-weight: 700;
+  }
+  #root footer .dialog-open {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 40vw;
+    /* Optional: for centering content inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0%;
+  }
+  #root footer .dialog-open .top-dialog-icons {
+    height: 10cqi;
+  }
+  #root footer .dialog-open h1 {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open p {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder {
+    height: auto;
+    width: 100%;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem {
+    height: 4cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem h3 {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem ul li.number-reapeated-products {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem ul li.price {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem p {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .total-checkout-price p {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open .containerOfOrder .total-checkout-price .number-price {
+    font-size: 1cqi;
+  }
+  #root footer .dialog-open #startANewOrder {
+    font-size: 2cqi;
+    padding: 5%;
   }
 }
 @media screen and (min-width: 1200px) {

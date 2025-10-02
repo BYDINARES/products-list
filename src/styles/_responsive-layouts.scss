@@ -1,0 +1,252 @@
+#root {
+  /*   @media screen and (min-width: 576px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+  @media screen and (min-width: 768px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  } */
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: 70% 30%;
+
+    main {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1/2;
+      gap: 4%;
+
+      h1 {
+        font-size: 4cqi;
+      }
+
+      .container-of-compoments {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+
+        .dessert {
+          flex-direction: column;
+          height: 25vw;
+          width: 30%;
+          > img {
+            height: 70%;
+          }
+          button {
+            height: fit-content;
+            font-size: 1cqi;
+            padding: 2%;
+            img {
+            }
+          }
+          .increase-deacrease-button {
+            height: 10%;
+            width: 60%;
+            button {
+              height: 1.5cqi;
+              width: 1.5cqi;
+              img {
+                height: 80%;
+                width: 80%;
+              }
+            }
+          }
+          small {
+            font-size: 1.5cqi;
+          }
+          h3 {
+            font-size: 1.5cqi;
+          }
+          p {
+            font-size: 1cqi;
+          }
+        }
+      }
+    }
+    footer {
+      grid-column: 2;
+      width: 100%;
+
+      aside.shopping-cart {
+        width: 100%;
+        h1 {
+          font-size: 2cqi;
+        }
+        .ilustration-empty-cart {
+        }
+        //The list of the to be-buyed items
+        .cart-list {
+          //Each individual item
+          section {
+            h3 {
+              font-size: 1.2cqi;
+            }
+            ul {
+              li.number-reapeated-products {
+                font-size: 1cqi;
+              }
+              li.price {
+                font-size: 1cqi;
+              }
+              li.multipliedPrice {
+                font-size: 1cqi;
+              }
+            }
+            > button {
+              height: 30%;
+              width: 30%;
+              img {
+                width: 80%;
+                height: 80%;
+              }
+            }
+          }
+          .total-price {
+            .calling-price {
+              font-size: 1.5cqi;
+            }
+            .number-price {
+              font-size: 3cqi;
+            }
+          }
+          .green-warning {
+            img {
+            }
+            p {
+              font-size: 1.2cqi;
+              a {
+              }
+            }
+          }
+          #confirm-order-button {
+            height: fit-content;
+            padding: 5%;
+            font-size: 1.5cqi;
+            font-weight: 700;
+          }
+        }
+      }
+
+      //===== DIALOG =====
+      .dialog-open {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        width: 40vw;
+        /* Optional: for centering content inside */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        //Styling
+        border-radius: 0%;
+
+        .top-dialog-icons {
+          height: 10cqi;
+          .check-icon {
+          }
+          .close-dialog-img {
+          }
+        }
+        h1 {
+          font-size: 1cqi;
+        }
+        p {
+          font-size: 1cqi;
+        }
+
+        //The container that has the order items
+        .containerOfOrder {
+          height: auto;
+          width: 100%;
+          //The Items inside the checkout
+          .orderItem {
+            height: 4cqi;
+            img {
+            }
+            h3 {
+              font-size: 1cqi;
+            }
+            ul {
+              li.number-reapeated-products {
+                font-size: 1cqi;
+              }
+              li.price {
+                font-size: 1cqi;
+              }
+            }
+            p {
+              font-size: 1cqi;
+            }
+          }
+          .total-checkout-price {
+            p {
+              font-size: 1cqi;
+            }
+            .number-price {
+              font-size: 1cqi;
+            }
+          }
+        }
+        #startANewOrder {
+          font-size: 2cqi;
+          padding: 5%;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    header {
+    }
+    main {
+      /* .container-of-compoments {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+      }
+      .dessert {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 30vw;
+        width: 30%;
+        > img {
+        }
+        button {
+          img {
+          }
+        }
+        .increase-deacrease-button {
+          button {
+          }
+        }
+        small {
+        }
+        h3 {
+        }
+        p {
+        }
+      } */
+    }
+    .dialog-open {
+    }
+  }
+  @media screen and (min-width: 1400px) {
+    header {
+    }
+    main {
+    }
+    .dialog-open {
+    }
+  }
+}
