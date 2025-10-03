@@ -175,7 +175,7 @@ body {
           }
 
           button {
-            background-color: tra sparent;
+            background-color: transparent;
             border: solid 2px white;
             padding: 0%;
             height: 5cqi;
@@ -185,6 +185,7 @@ body {
             &:hover,
             &:focus-visible {
               transform: scale(1.05);
+              background-color: rgba(238, 238, 238, 0.26);
             }
             &:active {
               transform: scale(0.7);

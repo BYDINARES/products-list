@@ -151,7 +151,7 @@ body {
   transform: scale(1.05);
 }
 #root main .container-of-compoments .dessert .increase-deacrease-button button {
-  background-color: tra sparent;
+  background-color: transparent;
   border: solid 2px white;
   padding: 0%;
   height: 5cqi;
@@ -160,6 +160,7 @@ body {
 }
 #root main .container-of-compoments .dessert .increase-deacrease-button button:hover, #root main .container-of-compoments .dessert .increase-deacrease-button button:focus-visible {
   transform: scale(1.05);
+  background-color: rgba(238, 238, 238, 0.26);
 }
 #root main .container-of-compoments .dessert .increase-deacrease-button button:active {
   transform: scale(0.7);
@@ -500,12 +501,15 @@ body {
   #root {
     display: grid;
     grid-template-columns: 70% 30%;
+    height: auto;
+    width: 100vw;
   }
   #root main {
     display: flex;
     flex-direction: column;
     grid-column: 1/2;
     gap: 4%;
+    padding-bottom: 14%;
   }
   #root main h1 {
     font-size: 4cqi;
@@ -530,7 +534,7 @@ body {
     padding: 2%;
   }
   #root main .container-of-compoments .dessert .increase-deacrease-button {
-    height: 10%;
+    height: 15%;
     width: 60%;
   }
   #root main .container-of-compoments .dessert .increase-deacrease-button button {
@@ -538,8 +542,8 @@ body {
     width: 1.5cqi;
   }
   #root main .container-of-compoments .dessert .increase-deacrease-button button img {
-    height: 80%;
-    width: 80%;
+    height: 50%;
+    width: 50%;
   }
   #root main .container-of-compoments .dessert small {
     font-size: 1.5cqi;
@@ -559,6 +563,10 @@ body {
   }
   #root footer aside.shopping-cart h1 {
     font-size: 2cqi;
+  }
+  #root footer aside.shopping-cart .ilustration-empty-cart {
+    height: -moz-fit-content;
+    height: fit-content;
   }
   #root footer aside.shopping-cart .cart-list section h3 {
     font-size: 1.2cqi;
@@ -601,17 +609,18 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: auto;
     width: 40vw;
+    max-height: 80vh;
     /* Optional: for centering content inside */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-y: auto;
     border-radius: 0%;
   }
   #root footer .dialog-open .top-dialog-icons {
-    height: 10cqi;
+    height: 10%;
   }
   #root footer .dialog-open h1 {
     font-size: 1cqi;
@@ -625,24 +634,32 @@ body {
   }
   #root footer .dialog-open .containerOfOrder .orderItem {
     height: 4cqi;
+    padding: 2%;
   }
   #root footer .dialog-open .containerOfOrder .orderItem h3 {
-    font-size: 1cqi;
+    font-size: 1.3cqi;
+    font-weight: 700;
+  }
+  #root footer .dialog-open .containerOfOrder .orderItem ul {
+    gap: 6%;
   }
   #root footer .dialog-open .containerOfOrder .orderItem ul li.number-reapeated-products {
-    font-size: 1cqi;
+    font-size: 1.2cqi;
+    font-weight: 700;
   }
   #root footer .dialog-open .containerOfOrder .orderItem ul li.price {
     font-size: 1cqi;
+    font-weight: 700;
   }
   #root footer .dialog-open .containerOfOrder .orderItem p {
-    font-size: 1cqi;
+    font-size: 1.2cqi;
+    font-weight: 600;
   }
-  #root footer .dialog-open .containerOfOrder .total-checkout-price p {
-    font-size: 1cqi;
+  #root footer .dialog-open .containerOfOrder .total-checkout-price p.calling-price {
+    font-size: 2cqi;
   }
   #root footer .dialog-open .containerOfOrder .total-checkout-price .number-price {
-    font-size: 1cqi;
+    font-size: 3cqi;
   }
   #root footer .dialog-open #startANewOrder {
     font-size: 2cqi;
