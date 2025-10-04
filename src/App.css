@@ -369,6 +369,7 @@ body {
   height: 100%;
   /* Place at the end */
   margin-left: auto;
+  cursor: pointer;
 }
 #root footer .dialog-open h1 {
   font-size: 12cqi;
@@ -479,24 +480,6 @@ body {
   transform: scale(0.7);
 }
 
-#root {
-  /*   @media screen and (min-width: 576px) {
-    header {
-    }
-    main {
-    }
-    .dialog-open {
-    }
-  }
-  @media screen and (min-width: 768px) {
-    header {
-    }
-    main {
-    }
-    .dialog-open {
-    }
-  } */
-}
 @media screen and (min-width: 992px) {
   #root {
     display: grid;
@@ -622,11 +605,21 @@ body {
   #root footer .dialog-open .top-dialog-icons {
     height: 10%;
   }
+  #root footer .dialog-open .top-dialog-icons .check-icon {
+    height: 100%;
+  }
+  #root footer .dialog-open .top-dialog-icons .close-dialog-img {
+    height: 60%;
+  }
   #root footer .dialog-open h1 {
-    font-size: 1cqi;
+    width: 100%;
+    margin-top: 5%;
+    font-size: 4cqi;
+    text-align: left;
   }
   #root footer .dialog-open p {
-    font-size: 1cqi;
+    width: 100%;
+    font-size: 1.5cqi;
   }
   #root footer .dialog-open .containerOfOrder {
     height: auto;
@@ -664,36 +657,5 @@ body {
   #root footer .dialog-open #startANewOrder {
     font-size: 2cqi;
     padding: 5%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #root main {
-    /* .container-of-compoments {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3%;
-    }
-    .dessert {
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: 30vw;
-      width: 30%;
-      > img {
-      }
-      button {
-        img {
-        }
-      }
-      .increase-deacrease-button {
-        button {
-        }
-      }
-      small {
-      }
-      h3 {
-      }
-      p {
-      }
-    } */
   }
 }/*# sourceMappingURL=app.css.map */
